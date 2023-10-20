@@ -7,14 +7,14 @@
 class StateMachine {
 public:
 	StateMachine();
+
+    void setTransitionTable(const TransitionTable& transitionTable);
+    TransitionTable getTransitionTable() const;
 	
 	bool hasHangs() const;
 	bool isDeterministic() const;
-	bool isExpressionCorrect(const std::string& expression, int& errorPos);
+    int expressionIsCorrect(const std::string& expression);
 	
-	void setTransitionTable(const TransitionTable& transitionTable);
-	TransitionTable getTransitionTable() const; 
-
 private: 
 	bool hangs;
 	bool deterministic;
@@ -26,9 +26,4 @@ private:
 
 	void update();
 	int findNextIndex(int curState, uchar sym);
-	
-
-	
-	
-	
 };

@@ -5,17 +5,12 @@
 
 using namespace std;
 
-StateMachine::StateMachine() : deterministic(true), hangs(false)
-{
-	
-}
+StateMachine::StateMachine() : deterministic(true), hangs(false) {}
 
 bool StateMachine::checkDeterministic() {
 	
-	bool isDeterministic = true;
-	size_t countStates = transitionTable.size();
-	
-	for (size_t i = 1; i < countStates; i++) {
+    bool isDeterministic = true;
+    for (size_t i = 1; i < transitionTable.size(); i++) {
 		auto currentState = transitionTable[i - 1];
 		auto prevState = transitionTable[i - 1];
 
@@ -35,12 +30,12 @@ bool StateMachine::checkDeterministic() {
 }
 bool StateMachine::checkHangs() {
 	
-	size_t countStates = transitionTable.size();
+    const size_t countStates = transitionTable.size();
 
 	bool isHangs = false;
-	for (size_t i = 0; i < countStates; i++) {
-		if (!transitionTable[i].isTerminalState) {
-			
+    for (size_t i = 0; i < countStates; i++) {
+
+        if (!transitionTable[i].isTerminalState) {
 			bool found = false;			
 			for (size_t j = 0; j < countStates; j++) {
 				if (transitionTable[i].nextState == transitionTable[j].currentState) {
@@ -74,10 +69,8 @@ void StateMachine::setTransitionTable(const TransitionTable& transitionTable)
 
 int StateMachine::findNextIndex(int curState, uchar sym) {
 	
-	size_t ln = transitionTable.size();
-
 	int found = -1;
-	for (size_t j = 0; j < ln; j++) { // very bad algorithm to search in _SORTED_ array
+    for (size_t j = 0; j < transitionTable.size(); j++) {
 		
 		if (transitionTable[j].currentState == curState 
 			&& transitionTable[j].letter == sym) {
@@ -103,9 +96,10 @@ void StateMachine::update()
 
 	size_t countStates = transitionTable.size();
 	bool hasFinalState = false;
-	for (size_t i = 0; i < countStates; i++) {
-		if (hasFinalState = transitionTable[i].isTerminalState)
-			break;
+    for (size_t i = 0; i < countStates; i++) {
+        if (hasFinalState = transitionTable[i].isTerminalState) {
+            break;
+        }
 	}
 
 	if (!hasFinalState) {
@@ -121,30 +115,35 @@ bool StateMachine::isDeterministic() const
 	return deterministic;
 }
 
-bool StateMachine::isExpressionCorrect(const string& expression, int& errorPos) {
+int StateMachine::expressionIsCorrect(const string& expression) {
 	
 	if (!deterministic || hangs) {
 		throw runtime_error("This automat cannot check expression");
 	}
-		
-	size_t strLen = expression.size();
 
+    size_t counter = 0;
 	int currentState = 0;
-	for (int i = 0; i < strLen; i++) {
-		int idx = findNextIndex(currentState, expression[i]);
-		if (idx < 0) {
-			errorPos = i;
-			return false;
+
+    for (auto ch : expression) {
+        int idx = findNextIndex(currentState, ch);
+
+        if (idx < 0) {
+            return counter;
 		}
-		if (transitionTable[idx].isTerminalState) {
-			if (i == strLen - 1) return true;
-			errorPos = i + 1;
-			return false;
+
+        if (transitionTable[idx].isTerminalState) {
+            if (counter == expression.size() - 1) {
+                return -1;
+            }
+
+            return counter + 1;
 		}
+
 		currentState = transitionTable[idx].nextState;
+        counter++;
 	}
-	errorPos = strLen;
-	return false;
+
+    return counter;
 }
 
 bool StateMachine::hasHangs() const

@@ -128,14 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="Common.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateMachine.cpp" />
-    <ClCompile Include="StateReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StateMachine.h" />
-    <ClInclude Include="StateReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,16 +1,17 @@
 #include <iostream>
 #include <string>
 
+#include "Common.h"
 #include "StateMachine.h"
-#include "StateReader.h"
 
 int main() {
 
-	try { // try to create object of StateMachine
-		StateMachine stateMachine("states.txt");
+	try {
+		StateMachine stateMachine;
+		stateMachine.setTransitionTable(readStates4File("states.txt"));
 
-		for (auto it : stateMachine.GetSwitches()) {
-			std::cout << "q" << it.initialState
+		for (auto it : stateMachine.getTransitionTable()) {
+			std::cout << "q" << it.currentState
 				<< "," << it.letter 
 				<< "=" << (it.isTerminalState ? "f" : "q")
 				<< it.nextState << std::endl;

@@ -21,18 +21,15 @@
     <ClCompile Include="Common.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateReader.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StateMachine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
