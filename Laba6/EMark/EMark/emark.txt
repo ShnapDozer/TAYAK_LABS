@@ -1,0 +1,55 @@
+<block columns="2" bgcolor="9">
+	
+	<column width="5" bgcolor="10" textcolor="5" valign="center">
+		GREEN
+		GREEN
+		GREEN
+	</column>
+
+	<column rows="3">
+
+		<row height="5" bgcolor="1" valign="center">
+			BLUE
+			BLUE
+			BLUE
+		</row>
+
+		<row height="7" bgcolor="4" columns="3">
+
+			<column width="7" bgcolor="5">
+				PURPURE
+			</column>
+
+			<column width="6" bgcolor="6" textcolor="3">
+				YELLOW
+			</column>
+
+			<column >
+
+				<block rows="3">
+					
+					<row height="1" bgcolor="13" halign="left">
+						PURPURE
+					</row>
+
+					<row height="1" bgcolor="12" halign="center">
+						RED
+					</row>	
+					
+					<row height="1" bgcolor="11">
+						TURQUOISE
+					
+					</row>	
+				</block>
+			</column>
+		</row>
+
+		<row halign="center" valign="bottom">
+			BLUE
+			BLUE
+			BLUE
+
+		</row>
+	</column>
+
+</block>
