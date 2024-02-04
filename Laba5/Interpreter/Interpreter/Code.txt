@@ -1,4 +1,4 @@
-print "Enter a"
+print "Enter b"
 scan aa
 if aa == 3 or aa == 5 
 {
@@ -8,7 +8,7 @@ else
 {
 	print aa , " odd"
 }
-for i = 1 to 10 
+fo-r i = 1 to 10 
 {
 	half_i = i / 2
 	if half_i * 2 == i

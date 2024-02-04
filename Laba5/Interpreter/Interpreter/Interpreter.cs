@@ -55,6 +55,10 @@ namespace Interpreter
                     {
                         Assign(code, ref id);
                     }
+                    else 
+                    {
+                        throw new Exception($"Not know operation {code[id]}");
+                    }
                     break;
             }
 

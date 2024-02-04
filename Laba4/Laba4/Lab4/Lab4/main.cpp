@@ -13,6 +13,8 @@
 //void main(){ if (a < b) {return 5;} else {return 2;} } 
 //void main(){ if (a < b) return 5; else }
 
+// void main(){ int arw{1}{1} = { { 1) 1 }) { 1) 1 } }; }
+
 int main()
 {
     SetConsoleOutputCP(65001);

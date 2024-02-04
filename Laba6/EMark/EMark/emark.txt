@@ -6,7 +6,7 @@
 		GREEN
 	</column>
 
-	<column rows="3">
+	<column rows="4">
 
 		<row height="5" bgcolor="1" valign="center">
 			BLUE
@@ -20,16 +20,15 @@
 				PURPURE
 			</column>
 
-			<column width="6" bgcolor="6" textcolor="3">
+			<column width="7" bgcolor="15" textcolor="3" valign="center">
 				YELLOW
 			</column>
 
 			<column >
-
 				<block rows="3">
-					
-					<row height="1" bgcolor="13" halign="left">
-						PURPURE
+			
+					<row height="3" bgcolor="13" halign="center" valign="center">
+						 PURPURE
 					</row>
 
 					<row height="1" bgcolor="12" halign="center">
@@ -38,17 +37,19 @@
 					
 					<row height="1" bgcolor="11">
 						TURQUOISE
-					
-					</row>	
+					</row>
 				</block>
 			</column>
+		</row>
+
+		<row height="3" bgcolor="14" valign="center">
+			14 14 14
 		</row>
 
 		<row halign="center" valign="bottom">
 			BLUE
 			BLUE
 			BLUE
-
 		</row>
 	</column>
 
